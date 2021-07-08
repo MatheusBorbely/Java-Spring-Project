@@ -2,7 +2,6 @@ package br.com.zup.projetozup.validation.constraintvalidation;
 
 import br.com.zup.projetozup.domain.repository.UsuarioRepository;
 import br.com.zup.projetozup.validation.ExistUser;
-import br.com.zup.projetozup.validation.ExistUserEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;
@@ -11,8 +10,13 @@ import java.util.UUID;
 
 public class ExistUserValidator implements ConstraintValidator<ExistUser, UUID> {
 
+
+    private final UsuarioRepository usuarioRepository;
+
     @Autowired
-    UsuarioRepository usuarioRepository;
+    public ExistUserValidator(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
 
 
     @Override

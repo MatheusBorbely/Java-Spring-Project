@@ -1,20 +1,23 @@
 package br.com.zup.projetozup.validation.constraintvalidation;
 
-import br.com.zup.projetozup.domain.repository.UsuarioRepository;
 import br.com.zup.projetozup.microservice.EnderecoDtoViaCep;
 import br.com.zup.projetozup.microservice.ViaCEPCliente;
 import br.com.zup.projetozup.validation.ExistCep;
-import br.com.zup.projetozup.validation.ExistUserEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.util.Optional;
+
 
 public class ExistCepValidator implements ConstraintValidator<ExistCep, String> {
 
+
+    private final ViaCEPCliente viaCEPCliente;
+
     @Autowired
-    private ViaCEPCliente viaCEPCliente;
+    public ExistCepValidator(ViaCEPCliente viaCEPCliente) {
+        this.viaCEPCliente = viaCEPCliente;
+    }
 
 
     @Override

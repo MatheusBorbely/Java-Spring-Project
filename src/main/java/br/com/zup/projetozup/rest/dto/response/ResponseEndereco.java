@@ -1,9 +1,7 @@
 package br.com.zup.projetozup.rest.dto.response;
 
 import br.com.zup.projetozup.domain.entity.Endereco;
-import br.com.zup.projetozup.domain.entity.Usuario;
 
-import java.util.Set;
 import java.util.UUID;
 
 public class ResponseEndereco {

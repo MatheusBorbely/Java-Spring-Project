@@ -13,10 +13,15 @@ import javax.validation.Valid;
 @RequestMapping("/endereco")
 public class EnderecoController {
 
-    @Autowired
-    EnderecoService enderecoService;
 
-    @PostMapping("/cadastrar")
+    private final EnderecoService enderecoService;
+
+    @Autowired
+    public EnderecoController(EnderecoService enderecoService) {
+        this.enderecoService = enderecoService;
+    }
+
+    @PostMapping("/")
     public ResponseEntity<ResponseEndereco> salvar(@RequestBody @Valid RequestEndereco requestEndereco) {
         return enderecoService.salvar(requestEndereco);
     }

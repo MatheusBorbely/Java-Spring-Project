@@ -1,6 +1,5 @@
 package br.com.zup.projetozup.validation;
 
-import br.com.zup.projetozup.validation.constraintvalidation.ExistUserCpfValidator;
 import br.com.zup.projetozup.validation.constraintvalidation.ExistUserEmailValidator;
 
 import javax.validation.Constraint;

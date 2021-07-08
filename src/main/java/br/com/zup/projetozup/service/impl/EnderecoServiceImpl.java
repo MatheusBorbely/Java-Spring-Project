@@ -18,14 +18,19 @@ import java.net.URI;
 @Service
 public class EnderecoServiceImpl  implements EnderecoService {
 
-    @Autowired
-    private EnderecoRepository enderecoRepository;
+
+    private final EnderecoRepository enderecoRepository;
+
+    private final ViaCEPCliente viaCEPCliente;
+
+    private final UsuarioRepository usuarioRepository;
 
     @Autowired
-    private ViaCEPCliente viaCEPCliente;
-
-    @Autowired
-    private UsuarioRepository usuarioRepository;
+    public EnderecoServiceImpl(EnderecoRepository enderecoRepository, ViaCEPCliente viaCEPCliente, UsuarioRepository usuarioRepository) {
+        this.enderecoRepository = enderecoRepository;
+        this.viaCEPCliente = viaCEPCliente;
+        this.usuarioRepository = usuarioRepository;
+    }
 
     @Override
     public ResponseEntity<ResponseEndereco> salvar(RequestEndereco requestEndereco) {

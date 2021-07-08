@@ -10,16 +10,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-
 import java.net.URI;
 import java.util.UUID;
-
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 
+
+    private final UsuarioRepository usuarioRepository;
+
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
 
     @Override
     public ResponseEntity<ResponseUsuario> salvar( RequestUsuario requestUsuario) {

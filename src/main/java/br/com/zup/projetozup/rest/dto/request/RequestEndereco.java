@@ -1,6 +1,5 @@
 package br.com.zup.projetozup.rest.dto.request;
 
-import br.com.zup.projetozup.domain.entity.Usuario;
 import br.com.zup.projetozup.validation.ExistCep;
 import br.com.zup.projetozup.validation.ExistUser;
 import br.com.zup.projetozup.validation.ExistUserAddress;

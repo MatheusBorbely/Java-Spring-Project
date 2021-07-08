@@ -2,7 +2,6 @@ package br.com.zup.projetozup.microservice;
 
 import br.com.zup.projetozup.domain.entity.Endereco;
 import br.com.zup.projetozup.domain.entity.Usuario;
-import br.com.zup.projetozup.domain.repository.EnderecoRepository;
 import br.com.zup.projetozup.domain.repository.UsuarioRepository;
 import br.com.zup.projetozup.rest.dto.request.RequestEndereco;
 

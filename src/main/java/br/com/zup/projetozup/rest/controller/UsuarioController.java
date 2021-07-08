@@ -15,15 +15,20 @@ import java.util.UUID;
 @RequestMapping("/usuario")
 public class UsuarioController {
 
-    @Autowired
-    UsuarioService usuarioService;
 
-    @PostMapping("/cadastrar")
+    private final UsuarioService usuarioService;
+
+    @Autowired
+    public UsuarioController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
+
+    @PostMapping("/")
     public ResponseEntity<ResponseUsuario> salvar(@RequestBody @Valid RequestUsuario requestUsuario) {
         return usuarioService.salvar(requestUsuario);
     }
 
-    @GetMapping("endereco/buscar/{id}")
+    @GetMapping("endereco/{id}")
     public ResponseEntity<ResponseUsuario> buscar(@PathVariable UUID id){
         return usuarioService.buscar(id);
     }
