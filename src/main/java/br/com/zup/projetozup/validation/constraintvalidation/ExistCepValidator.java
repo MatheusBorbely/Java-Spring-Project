@@ -27,9 +27,8 @@ public class ExistCepValidator implements ConstraintValidator<ExistCep, String> 
 
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        if(s.length() < 8  || s.length() > 9) return false;
         EnderecoDtoViaCep enderecoDtoViaCep = viaCEPCliente.buscaEnderecoPor(s);
-        return enderecoDtoViaCep.getErro() != null;
+        return enderecoDtoViaCep.getErro() == null;
 
 
     }

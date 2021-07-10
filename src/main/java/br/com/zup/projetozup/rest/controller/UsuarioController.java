@@ -29,7 +29,7 @@ public class UsuarioController {
     }
 
     @GetMapping("endereco/{id}")
-    public ResponseEntity<ResponseUsuario> buscar(@PathVariable UUID id){
+    public ResponseEntity<ResponseUsuario> buscar(@PathVariable @Valid UUID id){
         return usuarioService.buscar(id);
     }
 

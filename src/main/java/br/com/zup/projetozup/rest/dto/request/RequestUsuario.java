@@ -1,13 +1,17 @@
 package br.com.zup.projetozup.rest.dto.request;
 
 import br.com.zup.projetozup.domain.entity.Usuario;
+import br.com.zup.projetozup.test.FirstOrder;
+import br.com.zup.projetozup.test.SecondOrder;
 import br.com.zup.projetozup.validation.ExistUserCpf;
 import br.com.zup.projetozup.validation.ExistUserEmail;
 import org.hibernate.validator.constraints.br.CPF;
 
+import javax.validation.GroupSequence;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
 
+@GroupSequence({RequestUsuario.class, FirstOrder.class, SecondOrder.class})
 public class RequestUsuario {
 
     @Size(min = 2, max = 100, message = "{nome.tamanho}")
@@ -18,8 +22,8 @@ public class RequestUsuario {
     @NotBlank (message = "{email.vazio}")
     private String email;
     @NotBlank (message = "{cpf.vazio}")
-    @ExistUserCpf(message = "{cpf.cadastrado}")
-    @CPF (message = "{cpf.invalido}")
+    @ExistUserCpf(message = "{cpf.cadastrado}",groups = SecondOrder.class)
+    @CPF (message = "{cpf.invalido}", groups = FirstOrder.class)
     private String cpf;
     @Past
     @NotNull (message = "{data.vazia}")
